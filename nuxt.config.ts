@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/i18n",
   ],
-  extends: ["nuxt-seo-kit"],
+  // extends: ["nuxt-seo-kit"],
   runtimeConfig: {
     app: {
       title: process.env.SITE_NAME,
@@ -84,14 +84,9 @@ export default defineNuxtConfig({
     inlineSSRStyles: false,
   },
   image: {
+    dir: "assets/content",
+
     format: ["webp"],
-    provider: "ipx",
-    ipx: {
-      modifiers: {
-        quality: "80",
-        format: ["webp"],
-      },
-    },
   },
   hooks: {
     "build:done": () => {

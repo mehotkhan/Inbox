@@ -3,7 +3,7 @@ const { sidebarEnabled, toggleSidebar } = useSidebar();
 </script>
 <template>
   <div class="flex gap-1 text-md items-center">
-    <BaseLanguageSelector class="items-center" />
+    <!-- <BaseLanguageSelector class="items-center" /> -->
     <BaseSocial class="items-center hidden md:flex" />
     <BaseDarkMode class="items-center" />
     <UButton v-if="sidebarEnabled" variant="ghost" class="p-0" @click="toggleSidebar">

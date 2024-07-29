@@ -35,7 +35,7 @@ useHead({
 
   <Body class="dark:bg-slate-800">
     <NuxtLayout>
-      <SeoKit />
+      <!-- <SeoKit /> -->
       <NuxtLoadingIndicator />
       <NuxtPage />
     </NuxtLayout>

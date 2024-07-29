@@ -8,6 +8,7 @@ import { GenerateDecap } from "./tools/configs-generators";
 export default defineNuxtConfig({
   ssr: true,
   css: ["@/assets/scss/base.scss", "@/assets/scss/extra.scss"],
+
   modules: [
     "@nuxt/ui",
     "@nuxt/content",
@@ -15,6 +16,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/i18n",
   ],
+
   // extends: ["nuxt-seo-kit"],
   runtimeConfig: {
     app: {
@@ -46,9 +48,11 @@ export default defineNuxtConfig({
       language: process.env.SITE_LANGUAGE,
     },
   },
+
   app: {
     pageTransition: { name: "page", mode: "in-out" },
   },
+
   vite: {
     plugins: [
       viteCompression({ algorithm: "brotliCompress" }),
@@ -74,20 +78,21 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
     minify: true,
     prerender: {
-      crawlLinks: false,
+      crawlLinks: true,
       routes: GenerateRoutes(["notes", "pages", "category"]),
     },
   },
+
   experimental: {
     payloadExtraction: false,
     treeshakeClientOnly: false,
     inlineSSRStyles: false,
   },
-  image: {
-    dir: "assets/content",
 
-    format: ["webp"],
-  },
+  // image: {
+  //   dir: "assets/content",
+  // },
+
   hooks: {
     "build:done": () => {
       GenerateDecap();
@@ -96,15 +101,21 @@ export default defineNuxtConfig({
       GenerateDecap();
     },
   },
+
   gtag: {
     id: "G-78646PGVN1",
   },
+
   content: {
     highlight: {
       theme: "github-dark",
+      preload: ["ts", "js", "css", "json", "go"],
     },
   },
+
   i18n: {
     vueI18n: "./i18n.config.ts", // if you are using custom path, default
   },
+
+  compatibilityDate: "2024-07-29",
 });
